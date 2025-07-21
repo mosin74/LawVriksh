@@ -1,3 +1,12 @@
+// @fileoverview Container component for displaying and managing article cards in the Law Vriksh dashboard.
+//
+// This component handles:
+// - Tab-based filtering (Recent, Trending, About)
+// - Persistent card state using localStorage
+// - Dynamic card creation via a modal (AddCardModal)
+// - Animated rendering using Framer Motion (AnimatePresence)
+// - Responsive, horizontally scrollable card layout
+
 import { useState, useEffect } from 'react';
 import Card from './Card';
 import AddCardModal from './AddCardModal';
@@ -9,7 +18,6 @@ const CardContainer = () => {
   const [cards, setCards] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Effect to load cards from localStorage on the initial component render.
   useEffect(() => {
     try {
       const storedCards = JSON.parse(localStorage.getItem('cards'));
@@ -24,14 +32,12 @@ const CardContainer = () => {
     }
   }, []);
 
-  // Effect to save the current state of 'cards' to localStorage whenever it changes.
   useEffect(() => {
     if (cards.length > 0) {
         localStorage.setItem('cards', JSON.stringify(cards));
     }
   }, [cards]);
 
-  // Handler function to add a new card to the state.
   const handleAddCard = (newCardData) => {
     const newCard = {
       id: Date.now(),

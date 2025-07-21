@@ -1,3 +1,10 @@
+// @fileoverview Sidebar component for the Law Vriksh dashboard.
+//
+// This component displays the author's profile information, bio, follow button,
+// and a vertical timeline of recent activities. Users can add new activities
+// using the integrated AddActivityModal. Activities are sorted by date and styled
+// in a clean timeline layout with optional external links.
+
 import { useContext, useState } from 'react';
 import profilePhoto from '../../../assets/profile.png';
 import penIcon from '../../../assets/pen.png';

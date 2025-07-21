@@ -1,4 +1,8 @@
-import React from 'react';
+// @fileoverview ArticleCard component for the Law Vriksh dashboard.
+//
+// This component displays a single article card with an image, title,
+// and meta information such as time and estimated reading duration.
+// Used within categorized article sections for visual presentation.
 
 const ArticleCard = ({ image, title }) => {
   return (

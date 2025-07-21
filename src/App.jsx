@@ -1,3 +1,9 @@
+// @fileoverview Main entry point and layout component for the Law Vriksh landing page.
+// 
+// This component sets up the overall structure of the dashboard,
+// including the Header, Sidebar, Profile section, Tabs, and categorized Article sections.
+// It also leverages context-based state management to dynamically render cards by category.
+
 import ProfileSection from './components/home/ProfileSection';
 import Section from './components/home/ArticleSection';
 import { useContext } from 'react';

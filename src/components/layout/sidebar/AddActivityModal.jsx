@@ -1,4 +1,9 @@
-// AddActivityModal.jsx
+// @fileoverview Modal component for adding a new activity in the Law Vriksh dashboard.
+//
+// This component provides a form with inputs for title, date, and an optional link.
+// It handles form validation and submission, and integrates with the activity context
+// to update the activity timeline in the sidebar.
+
 import { useState } from 'react';
 
 const AddActivityModal = ({ isOpen, onClose, onAddActivity }) => {

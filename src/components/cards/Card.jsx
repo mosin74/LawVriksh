@@ -1,3 +1,9 @@
+// @fileoverview Animated article card component for the Law Vriksh dashboard.
+//
+// This component uses Framer Motion to provide smooth entry and exit animations.
+// It displays the article image and title, styled with interactive hover effects.
+// Intended for use within horizontally scrollable or responsive card lists.
+
 import { motion } from 'framer-motion';
 
 const Card = ({ card }) => {

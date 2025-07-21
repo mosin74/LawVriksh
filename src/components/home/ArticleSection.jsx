@@ -1,3 +1,10 @@
+// @fileoverview Article section component for the Law Vriksh dashboard.
+//
+// This component renders a titled section containing a grid of ArticleCards.
+// It allows users to add new cards dynamically via a modal form,
+// supporting title, description, and image uploads.
+// Cards are filtered by category using props and managed through React Context.
+
 import { useState, useContext } from 'react';
 import { CardContext } from '../../context/CardContext';
 import ArticleCard from '../cards/ArticleCard';

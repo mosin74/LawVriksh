@@ -1,3 +1,8 @@
+// @fileoverview Top navigation bar component for the Law Vriksh landing page.
+//
+// This component displays the logo, navigation links (Home, About, Contact),
+// and user action icons such as search, notifications, and avatar.
+
 import { FiSearch, FiBell, FiMenu } from 'react-icons/fi';
 import avatarImg from '../../../assets/avatar.png';
 

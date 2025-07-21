@@ -1,4 +1,7 @@
-import React from 'react';
+// @fileoverview Profile section component for the Law Vriksh landing page.
+//
+// This component displays the user's name, a short description, and social media icons.
+
 import { FiFacebook, FiLinkedin, FiTwitter, FiMail } from 'react-icons/fi'; // Outline-style icons
 
 const socialIcons = [

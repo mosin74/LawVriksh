@@ -1,3 +1,7 @@
+// @fileoverview Tabs component for the Law Vriksh landing page.
+//
+// This component displays a set of interactive navigation tabs (Recent, Trending, About)
+
 const Tabs = () => {
   return (
     <div className="flex justify-between border-b-2 border-gray-300">
