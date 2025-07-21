@@ -1,10 +1,10 @@
-import Header from './components/Header';
-import ProfileSection from './components/ProfileSection';
-import Tabs from './components/Tabs';
-import Section from './components/Section';
-import Sidebar from './components/Sidebar';
-import { CardContext } from './context/CardContext';
+import ProfileSection from './components/home/ProfileSection';
+import Section from './components/home/ArticleSection';
 import { useContext } from 'react';
+import Header from './components/layout/header/Header';
+import Sidebar from './components/layout/sidebar/Sidebar';
+import { CardContext } from './context/CardContext';
+import Tabs from './components/common/Tabs';
 
 const App = () => {
   const { cards } = useContext(CardContext);

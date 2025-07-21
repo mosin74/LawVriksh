@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react';
-import { CardContext } from '../context/CardContext';
-import ArticleCard from './ArticleCard';
+import { CardContext } from '../../context/CardContext';
+import ArticleCard from '../cards/ArticleCard';
 
 const Section = ({ title, cards }) => {
   const { addCard } = useContext(CardContext);

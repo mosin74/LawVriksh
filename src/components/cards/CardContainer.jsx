@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Card from './Card';
 import AddCardModal from './AddCardModal';
-import { initialCards } from '../data/initialCards';
+import { initialCards } from '../../data/initialCards';
 import { AnimatePresence } from 'framer-motion';
 
 const CardContainer = () => {

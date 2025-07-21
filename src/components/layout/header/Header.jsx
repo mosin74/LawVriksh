@@ -1,5 +1,5 @@
 import { FiSearch, FiBell, FiMenu } from 'react-icons/fi';
-import avatarImg from '../assets/avatar.png';
+import avatarImg from '../../../assets/avatar.png';
 
 const Header = () => {
   return (

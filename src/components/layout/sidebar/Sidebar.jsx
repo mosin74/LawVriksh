@@ -1,8 +1,8 @@
 import { useContext, useState } from 'react';
-import profilePhoto from '../assets/profile.png';
-import penIcon from '../assets/pen.png'; // <-- Import your pen icon image here
+import profilePhoto from '../../../assets/profile.png';
+import penIcon from '../../../assets/pen.png';
 import AddActivityModal from './AddActivityModal';
-import { ActivityContext } from '../context/ActivityContext';
+import { ActivityContext } from '../../../context/ActivityContext';
 
 const Sidebar = () => {
   const { activities, addActivity } = useContext(ActivityContext);

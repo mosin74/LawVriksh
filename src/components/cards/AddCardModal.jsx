@@ -35,7 +35,6 @@ const AddCardModal = ({ isOpen, onClose, onAddCard }) => {
               required
             />
           </div>
-          {/* Add description field if you want */}
           <div className="flex justify-end space-x-4">
             <button type="button" onClick={onClose} className="px-4 py-2 bg-gray-200 rounded-lg">Cancel</button>
             <button type="submit" className="px-4 py-2 bg-black text-white rounded-lg">Add Card</button>
