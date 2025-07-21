@@ -27,7 +27,7 @@ const Section = ({ title, cards }) => {
     const file = e.target.files[0];
     const reader = new FileReader();
     reader.onloadend = () => {
-      setImageBase64(reader.result); 
+      setImageBase64(reader.result);
     };
     if (file) {
       reader.readAsDataURL(file);
@@ -36,7 +36,7 @@ const Section = ({ title, cards }) => {
 
 
   return (
-    <section className="mt-8 pl-8" style={{ width: '813px' }}>
+    <section className="mt-8 pl-8 max-w-[813px] w-full">
       <div className="flex justify-start items-center mb-4">
         <h2 className="text-lg font-semibold text-gray-800">{title}</h2>
         <div className="bg-color-img mx-8 p-[2px] rounded-full">
@@ -51,13 +51,12 @@ const Section = ({ title, cards }) => {
         </div>
       </div>
 
-      <div className="grid grid-cols-3 gap-[13.5px]">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[13.5px] justify-items-center">
+
         {cards.map(card => (
           <ArticleCard key={card.id} image={card.image} title={card.title} />
         ))}
       </div>
-
-      {/* Modal */}
       {showModal && (
         <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
           <div className="bg-white p-6 rounded-lg w-[300px]">

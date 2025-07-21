@@ -15,13 +15,11 @@ const ProfileSection = () => {
         <h2 className=" w-[276px] h-[35px] text-2xl font-semibold text-black">Robert Fox’s Page</h2>
         <h2 className=" w-[22px] h-[22px] text-2xl font-semibold text-black">...</h2>
       </div>
-      <p className="w-[732px] h-[69px] mt-2 text-sm text-black max-w-2xl">
+      <p className="h-[69px] mt-2 text-sm text-black max-w-2xl">
         An author is a creator of written works, such as books, articles, or stories, who
         uses words to inform, entertain, or inspire readers. They often draw from 
         imagination.
       </p>
-
-      {/* Social Icons */}
       <div className="bg-color-img w-[213px] h-[59px] p-[1px] rounded-full">
         <div className="flex justify-between items-center w-full h-full px-2 rounded-full bg-[#fff8ee]">
           {socialIcons.map(({ icon, label }, index) => (

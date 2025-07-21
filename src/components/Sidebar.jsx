@@ -1,5 +1,6 @@
 import { useContext, useState } from 'react';
 import profilePhoto from '../assets/profile.png';
+import penIcon from '../assets/pen.png'; // <-- Import your pen icon image here
 import AddActivityModal from './AddActivityModal';
 import { ActivityContext } from '../context/ActivityContext';
 
@@ -9,7 +10,6 @@ const Sidebar = () => {
 
   return (
     <aside className="w-full max-w-xs bg-[#fff8ee] p-6">
-      {/* Profile Info */}
       <div className="relative w-fit">
         <img
           src={profilePhoto}
@@ -32,8 +32,6 @@ const Sidebar = () => {
       <button className="mt-4 px-6 py-2 text-black text-sm font-semibold rounded-full shadow transition duration-200 bg-button-bg hover:bg-button-bg-hover">
         Follow
       </button>
-
-      {/* Activities */}
       <div className="mt-8">
         <div className="h-[35px] flex items-center justify-between mb-2 border-b-2 border-gray-300">
           <h3 className="text-md font-semibold text-black">Recent Activities</h3>
@@ -48,54 +46,42 @@ const Sidebar = () => {
             </div>
           </div>
         </div>
-
-        {/* Timeline */}
         <ul className="mt-4 ml-2 space-y-6">
-          {...activities.sort((a, b) => new Date(b.date) - new Date(a.date)).map((activity, idx) => (
-            <li key={idx} className="relative pl-4">
+          {...activities
+            .sort((a, b) => new Date(b.date) - new Date(a.date))
+            .map((activity, idx) => (
+              <li key={idx} className="relative pl-4">
+                <p className="text-xs text-gray-600 mb-1 ">{activity.date}</p>
+                <div className="relative pl-6">
+                  <div className="absolute top-0 left-[7px] h-full w-[2px] bg-color-img rounded-full z-0"></div>
 
-              <p className="text-xs text-gray-600 mb-1 ">{activity.date}</p>
-              <div className="relative pl-6">
-                {/* Line from dot downward */}
-                <div className="absolute top-0 left-[7px] h-full w-[2px] bg-color-img rounded-full z-0"></div>
+                  <div className="relative z-10 ml-2">
+                    <div className="flex items-center gap-1 text-sm text-[#544629]">
+                      <img src={penIcon} alt="Pen icon" className="w-3 h-3" />
+                      Wrote an article
+                    </div>
 
-                {/* Activity info (icon + label + link) */}
-                <div className="relative z-10 ml-2">
-                  <div className="flex items-center gap-1 text-sm text-gray-800">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="w-3 h-3 text-image-fill"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 20h9" />
-                    </svg>
-                    Wrote an article
+                    {activity.link ? (
+                      <a
+                        href={activity.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#544629] text-[10px] block w-[240px] underline decoration-[#544629]"
+                      >
+                        <span className="block truncate">{activity.title}</span>
+                      </a>
+                    ) : (
+                      <p className="text-[#544629] text-[10px] block w-[240px] underline decoration-[#544629]">
+                        <span className="block truncate">{activity.title}</span>
+                      </p>
+                    )}
                   </div>
-
-                  {activity.link ? (
-                    <a
-                      href={activity.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-image-fill hover:underline text-sm block w-[240px] truncate"
-                    >
-                      {activity.title}
-                    </a>
-                  ) : (
-                    <p className="text-image-fill text-sm block w-[240px] truncate">
-                      {activity.title}
-                    </p>
-                  )}
                 </div>
-              </div>
-            </li>
-          ))}
+              </li>
+            ))}
         </ul>
       </div>
 
-      {/* Modal */}
       <AddActivityModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
