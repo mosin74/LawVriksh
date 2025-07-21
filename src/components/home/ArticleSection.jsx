@@ -17,6 +17,7 @@ const Section = ({ title, cards }) => {
   const [imageBase64, setImageBase64] = useState('');
 
   const handleSubmit = () => {
+    if (!newTitle || !imageBase64) return alert("Title and image are required");
     addCard({
       id: Date.now(),
       title: newTitle,
@@ -26,8 +27,8 @@ const Section = ({ title, cards }) => {
     });
     setNewTitle('');
     setNewDesc('');
-    setShowModal(false);
     setImageBase64('');
+    setShowModal(false);
   };
 
   const handleImageUpload = (e) => {
@@ -36,11 +37,8 @@ const Section = ({ title, cards }) => {
     reader.onloadend = () => {
       setImageBase64(reader.result);
     };
-    if (file) {
-      reader.readAsDataURL(file);
-    }
+    if (file) reader.readAsDataURL(file);
   };
-
 
   return (
     <section className="mt-8 pl-8 max-w-[813px] w-full">
@@ -50,7 +48,7 @@ const Section = ({ title, cards }) => {
           <div className="w-[139px] h-[25px] rounded-full bg-[#fff8ee]">
             <button
               onClick={() => setShowModal(true)}
-              className="text-image-fill w-full h-full px-2 rounded-full font-poppins text-[16px] leading-none hover:brightness-70"
+              className="text-image-fill w-full h-full px-2 rounded-full font-poppins text-[16px] leading-none hover:brightness-90"
             >
               Add new card
             </button>
@@ -59,15 +57,16 @@ const Section = ({ title, cards }) => {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[13.5px] justify-items-center">
-
         {cards.map(card => (
           <ArticleCard key={card.id} image={card.image} title={card.title} />
         ))}
       </div>
+
       {showModal && (
         <div className="fixed inset-0 z-50 flex justify-center items-center bg-white/10 backdrop-blur-sm pointer-events-none">
           <div className="bg-white p-6 rounded-xl w-[320px] shadow-xl pointer-events-auto">
             <h3 className="text-lg font-semibold mb-4">Add New Card</h3>
+
             <input
               type="text"
               value={newTitle}
@@ -75,12 +74,14 @@ const Section = ({ title, cards }) => {
               placeholder="Title"
               className="w-full p-2 mb-3 border rounded"
             />
+
             <textarea
               value={newDesc}
               onChange={(e) => setNewDesc(e.target.value)}
               placeholder="Description"
               className="w-full p-2 mb-3 border rounded"
             />
+
             <div className="mb-4">
               <label
                 htmlFor="imageUpload"
@@ -123,8 +124,6 @@ const Section = ({ title, cards }) => {
           </div>
         </div>
       )}
-
-
     </section>
   );
 };
