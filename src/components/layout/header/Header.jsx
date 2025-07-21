@@ -5,13 +5,14 @@
 
 import { FiSearch, FiBell, FiMenu } from 'react-icons/fi';
 import avatarImg from '../../../assets/avatar.png';
+import logo from '../../../assets/logo.png';
 
 const Header = () => {
   return (
     <div className="bg-color-img">
       <header className="flex justify-between items-center py-5 px-6 bg-[#fff8ee]">
         <div className="flex items-center space-x-2">
-          <img src="/logo.png" alt="Law Vriksh" className="w-6 h-6" />
+          <img src={logo} alt="Law Vriksh" className="w-6 h-6" />
           <h1 className="text-xl text-image-fill brightness-80 hover:brightness-70">Law Vriksh</h1>
         </div>
         <nav className="hidden sm:flex space-x-6 font-normal text-[20px] leading-[117%] tracking-[7%] font-poppins">

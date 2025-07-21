@@ -23,7 +23,7 @@ const ProfileSection = () => {
         uses words to inform, entertain, or inspire readers. They often draw from 
         imagination.
       </p>
-      <div className="bg-color-img w-[213px] h-[59px] p-[1px] rounded-full">
+      <div className="mt-6 md:mt-0 bg-color-img w-[213px] h-[59px] p-[1px] rounded-full">
         <div className="flex justify-between items-center w-full h-full px-2 rounded-full bg-[#fff8ee]">
           {socialIcons.map(({ icon, label }, index) => (
             <button
