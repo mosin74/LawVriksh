@@ -65,38 +65,66 @@ const Section = ({ title, cards }) => {
         ))}
       </div>
       {showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded-lg w-[300px]">
+        <div className="fixed inset-0 z-50 flex justify-center items-center bg-white/10 backdrop-blur-sm pointer-events-none">
+          <div className="bg-white p-6 rounded-xl w-[320px] shadow-xl pointer-events-auto">
             <h3 className="text-lg font-semibold mb-4">Add New Card</h3>
             <input
               type="text"
-              placeholder="Title"
               value={newTitle}
               onChange={(e) => setNewTitle(e.target.value)}
-              className="w-full mb-3 p-2 border rounded"
+              placeholder="Title"
+              className="w-full p-2 mb-3 border rounded"
             />
             <textarea
-              placeholder="Description"
               value={newDesc}
               onChange={(e) => setNewDesc(e.target.value)}
-              className="w-full mb-3 p-2 border rounded"
+              placeholder="Description"
+              className="w-full p-2 mb-3 border rounded"
             />
-            <input type="file" accept="image/*" onChange={handleImageUpload} />
-            <button
-              onClick={handleSubmit}
-              className="bg-yellow-600 text-white py-1 px-4 rounded mr-2"
-            >
-              Add
-            </button>
-            <button
-              onClick={() => setShowModal(false)}
-              className="bg-gray-300 text-black py-1 px-4 rounded"
-            >
-              Cancel
-            </button>
+            <div className="mb-4">
+              <label
+                htmlFor="imageUpload"
+                className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-yellow-600 hover:bg-yellow-50 transition"
+              >
+                {imageBase64 ? (
+                  <img src={imageBase64} alt="Preview" className="h-full object-contain" />
+                ) : (
+                  <div className="flex flex-col items-center justify-center text-gray-500">
+                    <svg className="w-8 h-8 mb-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M4 16l4-4m0 0l4 4m-4-4v12M20 12a8 8 0 11-16 0 8 8 0 0116 0z" />
+                    </svg>
+                    <p className="text-sm">Click to upload image</p>
+                  </div>
+                )}
+              </label>
+              <input
+                id="imageUpload"
+                type="file"
+                accept="image/*"
+                onChange={handleImageUpload}
+                className="hidden"
+              />
+            </div>
+
+            <div className="flex justify-end gap-2">
+              <button
+                onClick={handleSubmit}
+                className="bg-yellow-600 text-white px-4 py-1 rounded"
+              >
+                Add
+              </button>
+              <button
+                onClick={() => setShowModal(false)}
+                className="bg-gray-300 text-black px-4 py-1 rounded"
+              >
+                Cancel
+              </button>
+            </div>
           </div>
         </div>
       )}
+
+
     </section>
   );
 };

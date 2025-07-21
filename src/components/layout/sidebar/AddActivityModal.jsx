@@ -24,8 +24,8 @@ const AddActivityModal = ({ isOpen, onClose, onAddActivity }) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-40 flex justify-center items-center z-50">
-      <div className="bg-white p-6 rounded-xl shadow-lg w-full max-w-md">
+    <div className="fixed inset-0 z-50 flex justify-center items-center bg-white/10 backdrop-blur-sm pointer-events-none">
+      <div className="bg-white p-6 rounded-xl shadow-lg w-full max-w-md pointer-events-auto">
         <h2 className="text-xl font-bold mb-4">Add New Activity</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
